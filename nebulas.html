@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Nebulas</title>
+    <style>
+        body {
+            background-color: #2A2A2A;
+            color: #E0E0E0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(90deg, #003366, #00509E);
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #FFD700; /* Gold */
+        }
+        main {
+            padding: 30px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            border-bottom: 2px solid #FF69B4;
+            padding-bottom: 10px;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+        .nebula-type {
+            margin: 20px 0;
+        }
+        .nebula-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .nebula-image:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+        }
+        footer a {
+            color: #FFD700;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .audio-controls {
+            margin-top: 15px;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nebulas</h1>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>What are Nebulas?</h2>
+            <p>Nebulas are vast clouds of gas and dust in space. They can be regions where new stars are forming, remnants of dead or dying stars, or simply diffuse areas of gas.</p>
+            <img src="nebula-image.jpg" alt="Nebula Image" class="nebula-image">
+        </section>
+
+        <section class="section">
+            <h2>Types of Nebulas</h2>
+
+            <div class="nebula-type">
+                <h3>1. Emission Nebulas</h3>
+                <img src="emission-nebula-image.jpg" alt="Emission Nebula" class="nebula-image">
+                <p>Emission nebulas are clouds of ionized gas that emit light of various colors. They are often found in regions of star formation.</p>
+                <audio id="emission-nebula-sound" src="sound.mp3" aria-label="Sound of Emission Nebula"></audio>
+            </div>
+
+            <div class="nebula-type">
+                <h3>2. Reflection Nebulas</h3>
+                <img src="reflection-nebula-image.jpg" alt="Reflection Nebula" class="nebula-image">
+                <p>Reflection nebulas do not emit their own light; instead, they reflect the light of nearby stars, creating beautiful blue hues.</p>
+            </div>
+
+            <div class="nebula-type">
+                <h3>3. Planetary Nebulas</h3>
+                <img src="planetary-nebula-image.jpg" alt="Planetary Nebula" class="nebula-image">
+                <p>Planetary nebulas are shells of gas ejected by dying stars. They are often round and can be very colorful.</p>
+            </div>
+        </section>
+
+        <section class="audio-controls">
+            <h2>Background Music</h2>
+            <button id="playButton">Play Music</button>
+            <button id="pauseButton">Pause Music</button>
+        </section>
+    </main>
+
+    <audio id="background-sound" src="Coldplay.mp3" loop aria-label="Background Music"></audio>
+
+    <footer>
+        <p>&copy; 2024 NASA - Nebulas. All Rights Reserved.</p>
+        <div>
+            <a href="https://twitter.com/NASAJWST" target="_blank">Twitter</a>
+            <a href="https://www.facebook.com/NASA" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/nasa/" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        const backgroundSound = document.getElementById('background-sound');
+        const playButton = document.getElementById('playButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const emissionNebulaSound = document.getElementById('emission-nebula-sound');
+
+        // Play background sound on button click
+        playButton.addEventListener('click', () => {
+            backgroundSound.play().catch(error => {
+                console.log('Audio playback failed:', error);
+            });
+        });
+
+        // Pause background sound on button click
+        pauseButton.addEventListener('click', () => {
+            backgroundSound.pause();
+            backgroundSound.currentTime = 0; // Reset sound
+        });
+
+        // Play emission nebula sound on hover
+        document.querySelector('.nebula-type:nth-child(1)').addEventListener('mouseenter', () => {
+            emissionNebulaSound.play().catch(error => {
+                console.log('Sound playback failed:', error);
+            });
+        });
+
+        // Stop emission nebula sound on mouse leave
+        document.querySelector('.nebula-type:nth-child(1)').addEventListener('mouseleave', () => {
+            emissionNebulaSound.pause();
+            emissionNebulaSound.currentTime = 0; // Reset sound
+        });
+    </script>
+</body>
+</html>

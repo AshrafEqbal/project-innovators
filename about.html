@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>About the James Webb Space Telescope</title>
+    <style>
+        body {
+            background-color: #1A1A1A;
+            color: #E0E0E0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(90deg, #003366, #00509E);
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #FFD700; /* Gold */
+        }
+        main {
+            padding: 30px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            border-bottom: 2px solid #FF69B4;
+            padding-bottom: 10px;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+        .jwst-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 15px 0;
+            transition: transform 0.3s;
+        }
+        .jwst-image:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+        }
+        footer a {
+            color: #FFD700;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About the James Webb Space Telescope</h1>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>What is the James Webb Space Telescope?</h2>
+            <p>The James Webb Space Telescope (JWST) is a large, space-based observatory designed to explore the universe in unprecedented detail. It is often referred to as the successor to the Hubble Space Telescope, but with advanced capabilities.</p>
+            <img src="jwt.jpg" alt="James Webb Space Telescope" class="jwst-image">
+        </section>
+
+        <section class="section">
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>Infrared Observations:</strong> JWST is equipped to observe the universe in infrared light, allowing it to see through dust clouds and study the early universe.</li>
+                <li><strong>Large Mirror:</strong> Its primary mirror measures 6.5 meters in diameter, enabling it to collect more light than Hubble.</li>
+                <li><strong>Sunshield:</strong> JWST has a large sunshield that protects it from the Sun's heat and keeps its instruments cool.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Contributions to Astronomy</h2>
+            <p>JWST is designed to help answer fundamental questions about the origins of stars, galaxies, and planetary systems. It will provide critical data on:</p>
+            <ul>
+                <li>The formation of stars and planets.</li>
+                <li>The composition of exoplanet atmospheres.</li>
+                <li>The evolution of galaxies over cosmic time.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Partnerships</h2>
+            <p>The James Webb Space Telescope is a collaborative project among three major space agencies:</p>
+            <ul>
+                <li><strong>NASA:</strong> The primary agency responsible for the design and construction of JWST.</li>
+                <li><strong>European Space Agency (ESA):</strong> Provides the launch vehicle and contributes scientific instruments.</li>
+                <li><strong>Canadian Space Agency (CSA):</strong> Contributes to scientific instruments and technology development.</li>
+            </ul>
+        </section>
+    </main>
+
+    <audio id="background-sound" src="Coldplay.mp3" loop></audio>
+
+    <footer>
+        <p>&copy; 2024 NASA - About JWST. All Rights Reserved.</p>
+        <div>
+            <a href="https://twitter.com/NASAJWST" target="_blank">Twitter</a>
+            <a href="https://www.facebook.com/NASA" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/nasa/" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        const backgroundSound = document.getElementById('background-sound');
+
+        // Play background sound on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            backgroundSound.volume = 0.3; // Set volume to 30%
+            backgroundSound.play().catch(error => {
+                console.log('Audio playback failed:', error);
+            });
+        });
+
+        // Stop sound when mouse leaves the body
+        document.body.addEventListener('mouseleave', function() {
+            backgroundSound.pause();
+            backgroundSound.currentTime = 0; // Reset sound
+        });
+
+        // Play sound on mouseover anywhere in the body
+        document.body.addEventListener('mouseover', function() {
+            if (backgroundSound.paused) {
+                backgroundSound.play().catch(error => {
+                    console.log('Audio playback failed:', error);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

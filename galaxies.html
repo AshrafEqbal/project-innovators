@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Galaxies</title>
+    <style>
+        body {
+            background-color: #1A1A1A;
+            color: #E0E0E0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(90deg, #003366, #00509E);
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #FFD700; /* Gold */
+        }
+        main {
+            padding: 30px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            border-bottom: 2px solid #FF69B4;
+            padding-bottom: 10px;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+        .galaxy-type {
+            margin: 20px 0;
+        }
+        .galaxy-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .galaxy-image:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+        }
+        footer a {
+            color: #FFD700;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            text-decoration: underline;
+            color: #FF69B4; /* Pink */
+        }
+        .audio-controls {
+            margin-top: 15px;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Galaxies</h1>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>What are Galaxies?</h2>
+            <p>Galaxies are massive systems of stars, gas, dust, and dark matter, bound together by gravity. They can vary widely in size and structure.</p>
+            <img src="galaxy.jpg" alt="Galaxy Image" class="galaxy-image">
+        </section>
+
+        <section class="section">
+            <h2>Types of Galaxies</h2>
+
+            <div class="galaxy-type">
+                <h3>1. Spiral Galaxies</h3>
+                <img src="spiral-galaxy-image.jpg" alt="Spiral Galaxy" class="galaxy-image">
+                <p>Spiral galaxies feature a flat, rotating disk containing stars, gas, and dust, along with a central concentration of stars known as the bulge.</p>
+            </div>
+
+            <div class="galaxy-type">
+                <h3>2. Elliptical Galaxies</h3>
+                <img src="elliptical-galaxy-image.jpg" alt="Elliptical Galaxy" class="galaxy-image">
+                <p>Elliptical galaxies are shaped like ellipses and contain older stars with little interstellar gas and dust.</p>
+            </div>
+
+            <div class="galaxy-type">
+                <h3>3. Irregular Galaxies</h3>
+                <img src="irregular-galaxy-image.jpg" alt="Irregular Galaxy" class="galaxy-image">
+                <p>Irregular galaxies do not have a distinct regular shape, often resulting from gravitational interactions with other galaxies.</p>
+            </div>
+        </section>
+
+        <section class="audio-controls">
+            <h2>Background Music</h2>
+            <button id="playButton">Play Music</button>
+            <button id="pauseButton">Pause Music</button>
+        </section>
+    </main>
+
+    <audio id="background-sound" src="Coldplay.mp3" loop></audio>
+
+    <footer>
+        <p>&copy; 2024 NASA - Galaxies. All Rights Reserved.</p>
+        <div>
+            <a href="https://twitter.com/NASAJWST" target="_blank">Twitter</a>
+            <a href="https://www.facebook.com/NASA" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/nasa/" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        const soundElement = document.getElementById('background-sound');
+        const playButton = document.getElementById('playButton');
+        const pauseButton = document.getElementById('pauseButton');
+
+        // Play sound on button click
+        playButton.addEventListener('click', () => {
+            soundElement.play().catch(error => {
+                console.log('Audio playback failed:', error);
+            });
+        });
+
+        // Pause sound on button click
+        pauseButton.addEventListener('click', () => {
+            soundElement.pause();
+            soundElement.currentTime = 0; // Reset sound
+        });
+    </script>
+</body>
+</html>

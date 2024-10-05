@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Exoplanets: Hot Jupiters</title>
+    <style>
+        body {
+            background-color: #1A1A1A;
+            color: #E0E0E0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(90deg, #003366, #00509E);
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #FFD700; /* Gold */
+        }
+        main {
+            padding: 30px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            border-bottom: 2px solid #FF69B4;
+            padding-bottom: 10px;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+        .exoplanet-type {
+            margin: 20px 0;
+        }
+        .exoplanet-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .exoplanet-image:hover {
+            transform: scale(1.05);
+        }
+        .audio-controls {
+            margin-top: 15px;
+        }
+        footer {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+        }
+        footer a {
+            color: #FFD700;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exoplanets: Hot Jupiters</h1>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>What are Exoplanets?</h2>
+            <p>Exoplanets, or extrasolar planets, are planets that exist outside our solar system. They orbit stars other than the Sun and can vary greatly in size, composition, and distance from their parent stars.</p>
+            <img src="exoplanet-image.jpg" alt="Exoplanet Image" class="exoplanet-image">
+        </section>
+
+        <section class="section">
+            <h2>Types of Exoplanets</h2>
+
+            <div class="exoplanet-type" id="hot-jupiter">
+                <h3>1. Hot Jupiters</h3>
+                <img src="hot-jupiter-image.jpg" alt="Hot Jupiter" class="exoplanet-image">
+                <p>Hot Jupiters are gas giants that orbit very close to their parent stars, resulting in high temperatures. They are usually larger than Jupiter and can have short orbital periods.</p>
+                <audio id="hot-jupiter-sound" src="sound.mp3" aria-label="Sound of Hot Jupiter"></audio>
+            </div>
+
+            <div class="exoplanet-type">
+                <h3>2. Super-Earths</h3>
+                <img src="super-earth-image.jpg" alt="Super-Earth" class="exoplanet-image">
+                <p>Super-Earths are exoplanets with a mass larger than Earth's but significantly smaller than that of Uranus or Neptune. They can be rocky or gaseous and may have the potential for life.</p>
+            </div>
+
+            <div class="exoplanet-type">
+                <h3>3. Mini-Neptunes</h3>
+                <img src="mini-neptune-image.jpg" alt="Mini-Neptune" class="exoplanet-image">
+                <p>Mini-Neptunes are smaller versions of Neptune, typically with a thick atmosphere of hydrogen and helium. They are still being studied to understand their characteristics and formation.</p>
+            </div>
+        </section>
+
+        <section class="audio-controls">
+            <h2>Background Music</h2>
+            <button id="playButton">Play Music</button>
+            <button id="pauseButton">Pause Music</button>
+        </section>
+    </main>
+
+    <audio id="background-sound" src="Coldplay.mp3" loop aria-label="Background Music"></audio>
+
+    <footer>
+        <p>&copy; 2024 NASA - Exoplanets. All Rights Reserved.</p>
+        <div>
+            <a href="https://twitter.com/NASAJWST" target="_blank">Twitter</a>
+            <a href="https://www.facebook.com/NASA" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/nasa/" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        const backgroundSound = document.getElementById('background-sound');
+        const playButton = document.getElementById('playButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const hotJupiterSound = document.getElementById('hot-jupiter-sound');
+
+        // Play background sound on button click
+        playButton.addEventListener('click', () => {
+            backgroundSound.play().catch(error => {
+                console.log('Audio playback failed:', error);
+            });
+        });
+
+        // Pause background sound on button click
+        pauseButton.addEventListener('click', () => {
+            backgroundSound.pause();
+            backgroundSound.currentTime = 0; // Reset sound
+        });
+
+        // Play Hot Jupiter sound on hover
+        const hotJupiterDiv = document.getElementById('hot-jupiter');
+        hotJupiterDiv.addEventListener('mouseenter', () => {
+            hotJupiterSound.play().catch(error => {
+                console.log('Sound playback failed:', error);
+            });
+        });
+
+        // Stop Hot Jupiter sound on mouse leave
+        hotJupiterDiv.addEventListener('mouseleave', () => {
+            hotJupiterSound.pause();
+            hotJupiterSound.currentTime = 0; // Reset sound
+        });
+    </script>
+</body>
+</html>
